@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>2ndHeart — Configurator</title>
   <meta name="theme-color" content="#efefed">
+  <meta name="description" content="2ndHeart — Laptop-Mainboard Gehäuse-Konfigurator für Upcycling-Projekte">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="2ndHeart">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -30,6 +39,9 @@
     <div class="readout" id="readout" aria-live="polite">000 × 000 × 00</div>
 
     <div class="tools">
+      <button id="installBtn" class="icon-btn" title="App installieren" aria-label="App installieren" hidden>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+      </button>
       <button id="boardBtn" class="icon-btn is-on" aria-pressed="true" title="Mainboard ein/aus">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1.5"/><rect x="7" y="9" width="5" height="5"/><path d="M15 9h3M15 12h3M15 15h3M3 9H1M3 15H1"/></svg>
       </button>

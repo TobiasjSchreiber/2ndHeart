@@ -1247,6 +1247,48 @@ $('#boardBtn').onclick = e => {
   if (root) applyFold(S.fold);
 };
 
+/* ───────── PWA Service Worker & Install ───────── */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch((err) => {
+      console.warn('SW registration failed:', err);
+    });
+  });
+}
+
+let deferredInstallPrompt = null;
+const installBtn = $('#installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  if (installBtn) {
+    installBtn.hidden = false;
+  }
+});
+
+if (installBtn) {
+  installBtn.onclick = async () => {
+    if (!deferredInstallPrompt) {
+      toast('App kann über das Browser-Menü installiert werden');
+      return;
+    }
+    deferredInstallPrompt.prompt();
+    const { outcome } = await deferredInstallPrompt.userChoice;
+    if (outcome === 'accepted') {
+      toast('2ndHeart wird installiert…');
+    }
+    deferredInstallPrompt = null;
+    installBtn.hidden = true;
+  };
+}
+
+window.addEventListener('appinstalled', () => {
+  deferredInstallPrompt = null;
+  if (installBtn) installBtn.hidden = true;
+  toast('2ndHeart erfolgreich installiert');
+});
+
 // fold slider + play
 const foldEl = $('#fold'), foldOut = $('#foldOut'), playBtn = $('#playBtn');
 let foldTarget = null, playing = false;
