@@ -1,5 +1,5 @@
 /* Service Worker for 2ndHeart PWA */
-const CACHE_NAME = 'secondheart-v1';
+const CACHE_NAME = 'secondheart-v12';
 
 const STATIC_ASSETS = [
   './',

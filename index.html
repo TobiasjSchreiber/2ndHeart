@@ -72,6 +72,14 @@
 
     <!-- 01 Mainboard -->
     <section class="step" data-title="Mainboard">
+      <div class="preset-dropdown" id="presetDropdown">
+        <button type="button" class="preset-btn" id="presetBtn" aria-haspopup="listbox" aria-expanded="false">
+          <span class="preset-btn-text" id="presetBtnText">Laptop-Vorlage wählen…</span>
+          <svg class="preset-btn-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="preset-menu" id="presetMenu" role="listbox" hidden></div>
+      </div>
+
       <p class="hint">Maße deines Laptop-Mainboards</p>
       <div class="field">
         <label for="L">Länge</label>
@@ -107,7 +115,54 @@
       </div>
     </section>
 
-    <!-- 03 Finish -->
+    <!-- 03 Power-Button -->
+    <section class="step" data-title="Startknopf" hidden>
+      <div id="pwrOpts">
+        <p class="hint">Position Oberseite <span class="muted">· Ziehen oder 3D</span></p>
+        <div class="pwr-pad-wrap">
+          <div class="pwr-pad" id="pwrPad" role="slider" tabindex="0" aria-label="Power-Button Position auf der Oberseite">
+            <span class="pwr-edge pwr-edge-top">HINTEN</span>
+            <span class="pwr-edge pwr-edge-bottom">VORNE</span>
+            <span class="pwr-edge pwr-edge-left">L</span>
+            <span class="pwr-edge pwr-edge-right">R</span>
+            <div class="pwr-pad-vents" id="pwrPadVents"></div>
+            <div class="pwr-cross-x" id="pwrCrossX"></div>
+            <div class="pwr-cross-y" id="pwrCrossY"></div>
+            <div class="pwr-handle" id="pwrHandle" title="Ziehen zum Positionieren">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v8"/><path d="M7.05 6.05a8 8 0 1 0 9.9 0"/></svg>
+            </div>
+            <span class="pwr-coord-badge" id="pwrCoordBadge">X 214 · Y 22 mm</span>
+          </div>
+        </div>
+
+        <div class="pwr-fields">
+          <div class="field pwr-field">
+            <label for="pwrX">Links → Rechts</label>
+            <div class="num"><input type="number" id="pwrX" data-pwr="pwrX" min="10" max="230" inputmode="numeric"><span>mm</span></div>
+            <input type="range" data-pwr="pwrX" min="10" max="230" step="1" aria-label="Power-Button Position X">
+          </div>
+          <div class="field pwr-field">
+            <label for="pwrY">Hinten → Vorne</label>
+            <div class="num"><input type="number" id="pwrY" data-pwr="pwrY" min="10" max="150" inputmode="numeric"><span>mm</span></div>
+            <input type="range" data-pwr="pwrY" min="10" max="150" step="1" aria-label="Power-Button Position Y">
+          </div>
+        </div>
+      </div>
+
+      <div id="pwrNoneMsg" class="pwr-none-msg" hidden>
+        <span>Kein Startknopf aktiv. Wähle unten eine Größe, um ihn zu aktivieren.</span>
+      </div>
+
+      <p class="hint">Knopfgröße <span class="muted" id="pwrHint">· Ø 12 mm</span></p>
+      <div class="seg" id="pwrSeg">
+        <button data-v="10">10 mm</button>
+        <button data-v="12" class="on">12 mm</button>
+        <button data-v="16">16 mm</button>
+        <button data-v="none">Keiner</button>
+      </div>
+    </section>
+
+    <!-- 04 Finish -->
     <section class="step" data-title="Oberfläche" hidden>
       <p class="hint">Farbe <span class="muted" id="finishName"></span></p>
       <div class="swatches" id="swatches"></div>
@@ -119,7 +174,7 @@
       </div>
     </section>
 
-    <!-- 04 Engrave -->
+    <!-- 05 Engrave -->
     <section class="step" data-title="Gravur" hidden>
       <p class="hint">Text</p>
       <input class="text-in" id="engrText" maxlength="18" autocomplete="off" spellcheck="false" placeholder="Leer = keine Gravur">
@@ -138,7 +193,7 @@
       </div>
     </section>
 
-    <!-- 05 Summary -->
+    <!-- 06 Summary -->
     <section class="step" data-title="Übersicht" hidden>
       <dl class="specs" id="specs"></dl>
       <button class="btn ghost" id="svgBtn">
