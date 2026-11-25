@@ -1,5 +1,5 @@
 /* Service Worker for 2ndHeart PWA */
-const CACHE_NAME = 'secondheart-v12';
+const CACHE_NAME = 'secondheart-v15';
 
 const STATIC_ASSETS = [
   './',
@@ -7,6 +7,12 @@ const STATIC_ASSETS = [
   'style.css',
   'app.js',
   'manifest.webmanifest',
+  'fonts/GeistPixel-Square.woff2',
+  'fonts/GeistMono-Variable.woff2',
+  'vendor/three/three.module.min.js',
+  'vendor/three/addons/controls/OrbitControls.js',
+  'vendor/three/addons/environments/RoomEnvironment.js',
+  'icons/logo.png',
   'icons/icon.svg',
   'icons/icon-192.png',
   'icons/icon-512.png',

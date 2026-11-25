@@ -4,36 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>2ndHeart — Configurator</title>
-  <meta name="theme-color" content="#efefed">
+  <meta name="theme-color" content="#0c0c0c">
   <meta name="description" content="2ndHeart — Laptop-Mainboard Gehäuse-Konfigurator für Upcycling-Projekte">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="2ndHeart">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
   <main id="view">
     <canvas id="c" aria-label="3D-Vorschau des Gehäuses"></canvas>
 
     <header class="brand">
-      <span class="brand-name">2ndHeart</span>
+      <img src="icons/logo.png" alt="2ndHeart" class="brand-logo">
     </header>
 
     <div class="readout" id="readout" aria-live="polite">000 × 000 × 00</div>
@@ -210,6 +198,6 @@
     </footer>
   </aside>
 
-  <script type="module" src="app.js"></script>
+  <script type="module" src="app.js?v=15"></script>
 </body>
 </html>

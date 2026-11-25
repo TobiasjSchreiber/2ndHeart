@@ -1,6 +1,6 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import * as THREE from './vendor/three/three.module.min.js';
+import { OrbitControls } from './vendor/three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from './vendor/three/addons/environments/RoomEnvironment.js';
 
 /* ════════════════════════════════════════════════════════════════
    SECOND HEART — sheet-metal case configurator
@@ -182,7 +182,7 @@ controls.minDistance = 120;
 controls.maxDistance = 3000;
 controls.target.set(0, 20, 0);
 
-scene.add(new THREE.HemisphereLight(0xffffff, 0xd9d9d4, 0.6));
+scene.add(new THREE.HemisphereLight(0xffffff, 0x50545a, 0.75));
 const sun = new THREE.DirectionalLight(0xffffff, 1.6);
 sun.position.set(-260, 620, 320);
 sun.castShadow = true;
@@ -194,7 +194,7 @@ scene.add(sun);
 
 const ground = new THREE.Mesh(
   new THREE.PlaneGeometry(4000, 4000),
-  new THREE.ShadowMaterial({ opacity: 0.13 })
+  new THREE.ShadowMaterial({ opacity: 0.38 })
 );
 ground.rotation.x = -Math.PI / 2;
 ground.receiveShadow = true;
@@ -1055,7 +1055,7 @@ function getEngravingTex(text) {
   let entry = engrTexCache.get(key);
   if (entry) return entry;
   const isPixel = S.font === 'pixel';
-  const fam = isPixel ? '500 130px "Geist Pixel Grid"' : '500 120px "Geist Mono"';
+  const fam = isPixel ? '500 130px "Geist Pixel Square"' : '500 120px "Geist Mono"';
   const spacing = isPixel ? '8px' : '12px';
   const c = document.createElement('canvas');
   let ctx = c.getContext('2d');
@@ -1636,7 +1636,7 @@ function exportSVG() {
   const f = n => n.toFixed(2);
   const paths = loops.map(l => loopToSvgPath(l, bends)).join('');
   const corkPaths = corkLoops.map(l => `M${l.map(([x, y]) => `${f(x)} ${f(y)}`).join('L')}Z`).join('');
-  const fam = S.font === 'pixel' ? 'Geist Pixel Grid' : 'Geist Mono';
+  const fam = S.font === 'pixel' ? 'Geist Pixel Square' : 'Geist Mono';
   const weight = '500';
   const spacing = S.font === 'pixel' ? 'letter-spacing="0.04em"' : 'letter-spacing="0.08em"';
   const svg = `<?xml version="1.0" encoding="UTF-8"?>
@@ -2320,7 +2320,7 @@ function loop() {
   try {
     await Promise.race([
       Promise.all([
-        document.fonts.load('500 40px "Geist Pixel Grid"'),
+        document.fonts.load('500 40px "Geist Pixel Square"'),
         document.fonts.load('400 40px "Geist Mono"')
       ]),
       new Promise(r => setTimeout(r, 2500)),
